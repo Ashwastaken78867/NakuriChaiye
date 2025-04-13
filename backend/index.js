@@ -26,8 +26,11 @@ app.use(cookieParser());
 
 // Configure CORS for frontend (React app running on port 5173)
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow requests from this origin
-    credentials: true               // Allow cookies and headers
+    origin: [
+        'http://localhost:5173', // For local development
+        'https://nakurichaiye.vercel.app' // For your deployed frontend
+    ],
+    credentials: true, // Allow cookies and headers
 };
 app.use(cors(corsOptions));
 
